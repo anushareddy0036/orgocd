@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dep-v1
+  name: dep-v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dep-v1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dep-v1
+    spec:
+      containers:
+      - image: anusha703/javacal:v1
+        name: javacal
+        resources: {}
+status: {}
