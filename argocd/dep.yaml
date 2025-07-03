@@ -1,24 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    app: dep-v1
-  name: dep-v1
+  name: myapp-v1
+  namespace: default
 spec:
-  replicas: 3
+  replicas: 5 # Number of replicas
   selector:
     matchLabels:
-      app: dep-v1
-  strategy: {}
+      app: myapp-v1
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: dep-v1
+        app: myapp-v1
     spec:
       containers:
-      - image: anusha703/javacal:v1
-        name: javacal
-        resources: {}
-status: {}
+        - name: myapp-v1
+          image: surya9961/javacalculator:v1
+          ports:
+            - containerPort: 8080  # Port 80
